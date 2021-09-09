@@ -1,4 +1,6 @@
-CREATE TABLE countries (Position INT,
+CREATE TABLE countries (Unnamed INT,
+						Unnameds INT,
+						Position INT,
 						LOCATION VARCHAR(30),
 						INDICATOR VARCHAR(30),
 						SUBJECT VARCHAR(30),
@@ -12,15 +14,20 @@ CREATE TABLE countries (Position INT,
 SELECT *
 FROM countries;
 
-CREATE TABLE medals (Rank INT, 
-					Team VARCHAR(30),
+CREATE TABLE medals ( 
+					 Position INT, 
+					Country VARCHAR(30),
+					Location VARCHAR (30),
 					Gold_Medal INT,
 					Silver_Medal INT,
-					Bronze INT, 
-					Total INT,
-					Rank_by_total INT, 
-					NOCCODE VARCHAR (30)
-					);
+					Bronze INT); 
+				
+				
 SELECT *
 from medals;
+
+SELECT countries.location, medals.Gold_Medal, medals.Silver_Medal, medals.Bronze, countries.value
+FROM countries
+INNER JOIN medals ON
+countries.Location=medals.location;
 
